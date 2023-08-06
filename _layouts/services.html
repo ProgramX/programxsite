@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>ProgramX Services</title>
+    {% include _global.html %}
+  </head>
+  <body>
+  {% include _navbar.html %}
+    <div class="container">
+      <br>
+        <a href="javascript:history.back()" class="right"><b>BACK</b></a>
+    </div>
+
+<style>
+  /* Make card aspect ratio to 16:9 */
+  .card-image {
+    width: 100%;
+    height: 0;
+    padding-top: 60.6%; /* 16:9 Aspect Ratio */
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Gradient overlay */
+  .card-image::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Adjust the duration for a slower or faster fade */
+  }
+
+  .card-image:hover::after {
+    opacity: 1;
+  }
+
+  /* Card title and content styles */
+  .card-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .card-content {
+    padding: 10px;
+  }
+</style>
+
+<div class="container"><style>.card{height:320px;}</style>
+    <h2>Services We Offer</h2>
+<div class="row">
+  {% for service in site.services %}
+  <div class="col s12 m6 l4">
+    <div class="card">
+      <a style="display:block" href="{{ service.url }}">
+        <div class="card-image" style="background-image: url('/assets/{{ service.image }}');">
+          <span class="card-title">{{ service.title }}</span>
+        </div>
+      </a>
+      <div class="card-content">
+        <p>{{ service.description }}</p>
+        <b class="right" style="color: green;">From {{ service.price }}</b>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+    {% include _footer.html %}
+  </body>
+</html>

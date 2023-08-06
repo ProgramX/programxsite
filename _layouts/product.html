@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>{{ page.title }}</title>
+    {% include _global.html %}
+  </head>
+  <body>
+  {% include _navbar.html %}
+
+    <div class="container">
+      <br>
+        <a href="javascript:history.back()" class="right"><b>BACK</b></a>
+      <i>Please contact us <a href="/contact/"><b>here</b></a> for orders or feedback.</i>
+    </div>
+
+    <div class="container">
+        <h1>{{ page.title }}</h1>
+      <a href="/contact/" style="display: inline-block; padding: 10px 20px; border: 2px solid green; background-color: green; text-decoration: none; color: white;"><b>BUY</b></a>
+      <a href="/products/" style="display: inline-block; padding: 10px 20px; border: 2px solid orange; text-decoration: none; color: orange;"><b>BROWSE OTHER PRODUCTS</b></a>
+        <br><br>
+      <img src="/assets/{{ page.image }}" alt="{{ page.title}}, {{ page.description }}" height="400">
+      {{ content }}
+    </div>
+
+    {% include _footer.html %}
+  </body>
+</html>
